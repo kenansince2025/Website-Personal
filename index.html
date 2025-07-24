@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DJ Night Fest 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🎧 DJ NIGHT FEST 2025</h1>
+      <nav>
+        <ul>
+          <li><a href="#event">Event</a></li>
+          <li><a href="#tickets">Tiket</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="overlay">
+      <h2>Feel The Beat, Live The Night</h2>
+      <p>Tiket sudah tersedia. Amankan tempatmu sekarang juga!</p>
+      <a href="#tickets" class="btn-hero">Beli Tiket Sekarang</a>
+    </div>
+  </section>
+
+  <section id="event" class="content">
+    <h2>Detail Acara</h2>
+    <div class="event-detail">
+      <p>🗓️ <strong>Tanggal:</strong> 10 Agustus 2025</p>
+      <p>📍 <strong>Lokasi:</strong> Jakarta Convention Center</p>
+      <p>🔥 <strong>Line-up:</strong> DJ Kenan, DJ Alya, DJ Rayzen, dan banyak lagi!</p>
+    </div>
+  </section>
+
+  <section id="tickets" class="content">
+    <h2>Pilih Tiket</h2>
+    <div class="ticket-container">
+      <div class="ticket-card">
+        <h3>Presale</h3>
+        <p class="price">Rp 150.000</p>
+        <button onclick="showForm('Presale', 150000)">Beli</button>
+      </div>
+      <div class="ticket-card">
+        <h3>Regular</h3>
+        <p class="price">Rp 250.000</p>
+        <button onclick="showForm('Regular', 250000)">Beli</button>
+      </div>
+      <div class="ticket-card">
+        <h3>VIP</h3>
+        <p class="price">Rp 500.000</p>
+        <button onclick="showForm('VIP', 500000)">Beli</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Pembelian -->
+  <section id="form-section" class="content" style="display:none;">
+    <h2>Form Pembelian</h2>
+    <form id="form-beli">
+      <input type="hidden" id="jenis_tiket" name="jenis_tiket" />
+      <input type="hidden" id="harga" name="harga" />
+
+      <label for="nama">Nama Lengkap:</label><br/>
+      <input type="text" id="nama" name="nama" required><br/><br/>
+
+      <label for="email">Email:</label><br/>
+      <input type="email" id="email" name="email" required><br/><br/>
+
+      <button type="submit">Lanjutkan Pembayaran</button>
+    </form>
+
+    <div id="cetak-section" style="display:none; margin-top: 20px;">
+      <button onclick="window.print()">Cetak Bukti Pembayaran</button>
+    </div>
+  </section>
+
+  <section id="contact" class="content">
+    <h2>Kontak</h2>
+    <p>Email: info@djfest.id</p>
+    <p>Instagram: <a href="#">@djfest.id</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DJ Night Fest. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showForm(jenis, harga) {
+      document.getElementById("form-section").style.display = "block";
+      document.getElementById("jenis_tiket").value = jenis;
+      document.getElementById("harga").value = harga;
+    }
+    document.getElementById("form-beli").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Pembelian berhasil! Anda bisa mencetak bukti pembayaran.");
+      document.getElementById("cetak-section").style.display = "block";
+    });
+  </script>
+</body>
+</html>
